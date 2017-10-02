@@ -3,34 +3,68 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/inboxes"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="All inboxes" />
     </group>
 
-    <item android:title="Communicate">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/inbox"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Inbox" />
+        <item
+            android:id="@+id/priority_inbox"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Priority inbox" />
+    </group>
+
+    <item android:title="All labels">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/starred"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="Starred" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/important"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Important" />
+            <item
+                android:id="@+id/sent"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Sent" />
+            <item
+                android:id="@+id/outbox"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Outbox" />
+            <item
+                android:id="@+id/drafts"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Drafts" />
+            <item
+                android:id="@+id/all_mail"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="All mail" />
+            <item
+                android:id="@+id/spam"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Spam" />
+            <item
+                android:id="@+id/trash"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Trash" />
         </menu>
     </item>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Settings" />
+        <item
+            android:id="@+id/help_and_feedback"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Help &amp; feedback" />
+    </group>
 
 </menu>
