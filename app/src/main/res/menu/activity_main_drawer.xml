@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/grp1" android:checkableBehavior="single">
         <item
             android:id="@+id/inboxes"
             android:icon="@drawable/ic_menu_camera"
             android:title="All inboxes" />
     </group>
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/grp2" android:checkableBehavior="single">
         <item
             android:id="@+id/inbox"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_inbox_black"
             android:title="Inbox" />
         <item
             android:id="@+id/priority_inbox"
@@ -23,7 +23,7 @@
         <menu>
             <item
                 android:id="@+id/starred"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_star_black"
                 android:title="Starred" />
             <item
                 android:id="@+id/important"
@@ -31,7 +31,7 @@
                 android:title="Important" />
             <item
                 android:id="@+id/sent"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_send_black"
                 android:title="Sent" />
             <item
                 android:id="@+id/outbox"
@@ -43,27 +43,27 @@
                 android:title="Drafts" />
             <item
                 android:id="@+id/all_mail"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_email_black"
                 android:title="All mail" />
             <item
                 android:id="@+id/spam"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_error_black"
                 android:title="Spam" />
             <item
                 android:id="@+id/trash"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_delete_black"
                 android:title="Trash" />
         </menu>
     </item>
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/grp3" android:checkableBehavior="single">
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_settings_black"
             android:title="Settings" />
         <item
             android:id="@+id/help_and_feedback"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_help_black"
             android:title="Help &amp; feedback" />
     </group>
 
