@@ -42,7 +42,7 @@ public class EmailsAdapter extends ArrayAdapter<Email> {
         date.setText(email.date);
 
         ColorGenerator generator = ColorGenerator.MATERIAL;
-        int color = generator.getRandomColor();
+        int color = generator.getColor(email.email);
         TextDrawable drawable = TextDrawable.builder()
                 .buildRound(email.title.substring(0,1),color);
 

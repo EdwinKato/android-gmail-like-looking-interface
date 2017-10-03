@@ -8,10 +8,12 @@ public class Email {
     String title;
     String description;
     String date;
+    String email;
 
-    public Email(String title, String description, String date) {
+    public Email(String title, String description, String date, String email) {
         this.title = title;
         this.description = description;
         this.date = date;
+        this.email = email;
     }
 }

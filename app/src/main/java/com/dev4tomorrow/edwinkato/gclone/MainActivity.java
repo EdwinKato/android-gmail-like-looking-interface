@@ -57,16 +57,12 @@ public class MainActivity extends AppCompatActivity
         ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
 
-        Email email1 = new Email("Hackathon", "Hi Edwin, Looking forward to seeing you", "Dec 3");
-        Email email2 = new Email("Lisa", "Hi, Please call me as soon as you see this", "Sept 3");
-        Email email3 = new Email("Jack", "Hi Edwin, Just wanted to thank you for the awesome work", "Aug 23");
+        Email email1 = new Email("Hackathon", "Hi Edwin, Looking forward to seeing you", "Dec 3", "hackathon@gmail.com");
+        Email email2 = new Email("Lisa", "Hi, Please call me as soon as you see this", "Sept 3", "lisa@gmail.com");
+        Email email3 = new Email("Jack", "Hi Edwin, Just wanted to thank you for the awesome work", "Aug 23", "jack@gmail.com");
         adapter.add(email1);
         adapter.add(email2);
         adapter.add(email3);
-
-//        emailsAdapter = new ArrayAdapter<Email>(this, android.R.layout.simple_list_item_1, items);
-//        ListView listView = (ListView) findViewById(R.id.list_view);
-//        listView.setAdapter(emailsAdapter);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
