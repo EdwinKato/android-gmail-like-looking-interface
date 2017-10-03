@@ -10,8 +10,6 @@ A simple android application with a gmail like looking interface.
 * List view
 * Floating Action Button
 
-## Screenshots
+## Preview
 
-![alt text](docs/Screenshot_20171003-122918.png)
-![alt text](docs/Screenshot_20171003-122928.png)
-![alt text](docs/Screenshot_20171003-130750.png)
+![alt text](docs/preview.gif)
