@@ -17,9 +17,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.SearchView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    EmailsAdapter emailsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,25 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        // Construct the data source
+        ArrayList<Email> arrayOfEmails = new ArrayList<Email>();
+        // Create the adapter to convert the array to views
+        EmailsAdapter adapter = new EmailsAdapter(this, arrayOfEmails);
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) findViewById(R.id.list_view);
+        listView.setAdapter(adapter);
+
+        Email email1 = new Email("Hackathon", "Hi Edwin, Looking forward to seeing you", "Dec 3");
+        Email email2 = new Email("Lisa", "Hi, Please call me as soon as you see this", "Sept 3");
+        Email email3 = new Email("Jack", "Hi Edwin, Just wanted to thank you for the awesome work", "Aug 23");
+        adapter.add(email1);
+        adapter.add(email2);
+        adapter.add(email3);
+
+//        emailsAdapter = new ArrayAdapter<Email>(this, android.R.layout.simple_list_item_1, items);
+//        ListView listView = (ListView) findViewById(R.id.list_view);
+//        listView.setAdapter(emailsAdapter);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
