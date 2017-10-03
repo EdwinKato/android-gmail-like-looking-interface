@@ -1,8 +1,12 @@
 package com.dev4tomorrow.edwinkato.gclone;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
+import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +16,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.support.v7.widget.SearchView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    EmailsAdapter emailsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +49,21 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        // Construct the data source
+        ArrayList<Email> arrayOfEmails = new ArrayList<Email>();
+        // Create the adapter to convert the array to views
+        EmailsAdapter adapter = new EmailsAdapter(this, arrayOfEmails);
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) findViewById(R.id.list_view);
+        listView.setAdapter(adapter);
+
+        Email email1 = new Email("Hackathon", "Hi Edwin, Looking forward to seeing you", "Dec 3", "hackathon@gmail.com");
+        Email email2 = new Email("Lisa", "Hi, Please call me as soon as you see this", "Sept 3", "lisa@gmail.com");
+        Email email3 = new Email("Jack", "Hi Edwin, Just wanted to thank you for the awesome work", "Aug 23", "jack@gmail.com");
+        adapter.add(email1);
+        adapter.add(email2);
+        adapter.add(email3);
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -54,8 +80,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+
+        MenuItem mSearchmenuItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) mSearchmenuItem.getActionView();
+        searchView.setQueryHint("Search mail");
+
         return true;
     }
 
@@ -67,9 +98,6 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -80,19 +108,6 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
